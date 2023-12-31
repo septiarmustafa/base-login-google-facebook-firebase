@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "615723229723",
+    "project_id": "fir-1248e",
+    "storage_bucket": "fir-1248e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615723229723:android:dda2eec3fecdc4cb60cebe",
+        "android_client_info": {
+          "package_name": "com.tiar.google"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615723229723-4oig3g6p2esk9kop8q1hoqjo13pb64qp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tiar.google",
+            "certificate_hash": "2e187aa094c7d596fda859cf36947254b52a828c"
+          }
+        },
+        {
+          "client_id": "615723229723-dbu2hq34ed2bmljure3k2te0r5btqsoh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8gXE3VHIXomFg83rIcDh1j6CAI7iyRRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615723229723-dbu2hq34ed2bmljure3k2te0r5btqsoh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "615723229723-jcvirl801sa151velucqtqupmb9q1grq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tiar.google.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
