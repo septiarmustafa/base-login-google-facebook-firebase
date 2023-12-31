@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'dart:async';
@@ -23,6 +25,7 @@ class HomeController extends GetxController {
   RxBool isAuthorized = false.obs; // has granted permissions?
   RxString contactText = ''.obs;
   RxBool isLoading = false.obs;
+  RxString email = "".obs;
 
   @override
   void onInit() {
@@ -115,5 +118,27 @@ class HomeController extends GetxController {
     isLoading(true);
     _googleSignIn.disconnect();
     isLoading(false);
+  }
+
+  Future<UserCredential> signInWithFacebook() async {
+    isLoading(true);
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance
+        .login(permissions: ['email', 'public_profile', 'user_birthday']);
+    log("Login Result : $loginResult");
+
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
+    log("Facebook Auth Credential : $facebookAuthCredential");
+
+    final userdata = await FacebookAuth.instance.getUserData();
+
+    email.value = userdata["email"];
+
+    isLoading(false);
+
+    // Once signed in, return the UserCredential
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 }

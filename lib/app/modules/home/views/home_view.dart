@@ -31,6 +31,8 @@ class HomeView extends GetView<HomeController> {
                     subtitle: Text(user.email),
                   ),
                   const Text('Signed in successfully.'),
+                  if (controller.email.value.isNotEmpty)
+                    Text("email ${controller.email.value}"),
                   if (controller.isAuthorized.value) ...<Widget>[
                     // The user has Authorized all required scopes
                     Text(controller.contactText.value),
@@ -71,8 +73,8 @@ class HomeView extends GetView<HomeController> {
                       },
                       child: const Text("login with Google")),
                   ElevatedButton(
-                      onPressed: () {
-                        // controller.handleSignIn();
+                      onPressed: () async {
+                        controller.signInWithFacebook();
                       },
                       child: const Text("login with Facebook"))
                 ],
